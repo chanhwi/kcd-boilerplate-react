@@ -24,12 +24,9 @@ const App = () => {
     };
 
     return (
-        <div className="App">
-            <p>AAA</p>
-            <PageLayout activeTab={activeTab} setActiveTab={setActiveTab}>
-                {renderPage()}
-            </PageLayout>
-        </div>
+        <PageLayout activeTab={activeTab} setActiveTab={setActiveTab}>
+            {renderPage()}
+        </PageLayout>
     );
 }
 

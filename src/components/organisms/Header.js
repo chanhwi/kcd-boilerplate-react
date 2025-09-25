@@ -1,3 +1,4 @@
+// src/components/organisms/Header.js
 import React from 'react';
 
 const Header = ({ activeTab, setActiveTab }) => {
@@ -7,28 +8,28 @@ const Header = ({ activeTab, setActiveTab }) => {
                 <div className="header-content">
                     <h1 className="logo">KCD Boilerplate</h1>
                     <nav>
-                        <ul className="nav">
-                        <li>
-                            <button 
-                                onClick={() => setActiveTab('home')}
-                                className={activeTab === 'home' ? 'nav-active' : ''}>
-                                홈
-                            </button>
-                        </li>
-                        <li>
-                            <button 
-                            onClick={() => setActiveTab('about')}
-                            className={activeTab === 'about' ? 'nav-active' : ''}>
-                                소개
-                            </button>
-                        </li>
-                        <li>
-                            <button 
-                            onClick={() => setActiveTab('contact')}
-                            className={activeTab === 'contact' ? 'nav-active' : ''}>
-                                연락처
-                            </button>
-                        </li>
+                        <ul className="nav-list">
+                            <li>
+                                <button 
+                                    onClick={() => setActiveTab('home')}
+                                    className={activeTab === 'home' ? 'nav-active' : ''}>
+                                    홈
+                                </button>
+                            </li>
+                            <li>
+                                <button 
+                                    onClick={() => setActiveTab('about')}
+                                    className={activeTab === 'about' ? 'nav-active' : ''}>
+                                    소개
+                                </button>
+                            </li>
+                            <li>
+                                <button 
+                                    onClick={() => setActiveTab('contact')}
+                                    className={activeTab === 'contact' ? 'nav-active' : ''}>
+                                    연락처
+                                </button>
+                            </li>
                         </ul>
                     </nav>
                 </div>
