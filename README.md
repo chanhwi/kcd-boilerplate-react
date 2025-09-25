@@ -1,3 +1,4 @@
 <h1>KCD REACT BOILERPLATE</h1>
-* Webpack
-* Babel
+
+* use Webpack
+* use Babel
