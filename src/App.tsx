@@ -6,10 +6,11 @@ import Home from './pages/Home';
 import ZustandPage from './pages/ZustandPage';
 import Contact from './pages/Contact';
 import { TAB } from './utils/constants';
+import { TabStore } from './store/TabStore';
 
 // 메인 App 컴포넌트
 const App = () => {
-    const [activeTab, setActiveTab] = useState<TAB>(TAB.home);
+    const { activeTab, setActiveTab } = TabStore();
 
     const renderPage = () => {
         switch(activeTab) {
