@@ -7,7 +7,7 @@
 <h4>Build</h4>
 
 * use Webpack
-* use Babel
+* use Babel -> use Esbuild
 
 <h4>Utility</h4>
 
