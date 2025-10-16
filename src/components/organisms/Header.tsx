@@ -1,7 +1,13 @@
 // src/components/organisms/Header.js
 import React from 'react';
+import { TAB } from '../../utils/constants';
 
-const Header = ({ activeTab, setActiveTab }) => {
+export interface IHeader {
+    activeTab: TAB, 
+    setActiveTab: (tab: TAB) => void 
+}
+
+const Header = ({ activeTab, setActiveTab }: IHeader) => {
     return (
         <header className="header">
             <div className="container">
@@ -11,22 +17,22 @@ const Header = ({ activeTab, setActiveTab }) => {
                         <ul className="nav-list">
                             <li>
                                 <button 
-                                    onClick={() => setActiveTab('home')}
-                                    className={activeTab === 'home' ? 'nav-active' : ''}>
+                                    onClick={() => setActiveTab(TAB.home)}
+                                    className={activeTab === TAB.home ? 'nav-active' : ''}>
                                     홈
                                 </button>
                             </li>
                             <li>
                                 <button 
-                                    onClick={() => setActiveTab('about')}
-                                    className={activeTab === 'about' ? 'nav-active' : ''}>
-                                    소개
+                                    onClick={() => setActiveTab(TAB.zustandPage)}
+                                    className={activeTab === TAB.zustandPage ? 'nav-active' : ''}>
+                                    주스탠드
                                 </button>
                             </li>
                             <li>
                                 <button 
-                                    onClick={() => setActiveTab('contact')}
-                                    className={activeTab === 'contact' ? 'nav-active' : ''}>
+                                    onClick={() => setActiveTab(TAB.contact)}
+                                    className={activeTab === TAB.contact ? 'nav-active' : ''}>
                                     연락처
                                 </button>
                             </li>

@@ -3,20 +3,21 @@ import './styles/style.css'
 import PageLayout from './components/templates/PageLayout';
 
 import Home from './pages/Home';
-import About from './pages/About';
+import ZustandPage from './pages/ZustandPage';
 import Contact from './pages/Contact';
+import { TAB } from './utils/constants';
 
 // 메인 App 컴포넌트
 const App = () => {
-    const [activeTab, setActiveTab] = useState('home');
+    const [activeTab, setActiveTab] = useState<TAB>(TAB.home);
 
     const renderPage = () => {
         switch(activeTab) {
-            case 'home':
+            case TAB.home:
                 return <Home />;
-            case 'about':
-                return <About />;
-            case 'contact':
+            case TAB.zustandPage:
+                return <ZustandPage />;
+            case TAB.contact:
                 return <Contact />;
             default:
                 return <Home />;
