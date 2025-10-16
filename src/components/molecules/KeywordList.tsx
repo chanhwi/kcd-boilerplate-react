@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
+import { IZustandPage, ZustandPageStore } from '../../store/ZustandPageStore';
 
 const KeywordList = () => {
-    const [keywords, setKeywords] = useState([]);
     const [input, setInput] = useState('');
-  
-    const addKeyword = () => {
+    const { keywordList, addKeyword, removeKeyword } = ZustandPageStore();
+
+    const generateAddKeyword = () => {
         if (input.trim()) {
-            setKeywords([...keywords, { id: Date.now(), text: input }]);
+            const keyObj:IZustandPage = {
+                key: Date.now().toString(),
+                value: input,
+            }
+
+            addKeyword(keyObj);
             setInput('');
         }
-    };
-
-    const removeKeyword = (id) => {
-        setKeywords(keywords.filter(keyword => keyword.id !== id));
     };
 
     return (
@@ -23,15 +25,15 @@ const KeywordList = () => {
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     placeholder="키워드를 입력하세요"
-                    onKeyPress={(e) => e.key === 'Enter' && addKeyword()}
+                    onKeyDown={(e) => e.key === 'Enter' && generateAddKeyword()}
                 />
-                <button onClick={addKeyword}>추가</button>
+                <button onClick={generateAddKeyword}>추가</button>
             </div>
             <ul>
-                {keywords.map(keyword => (
-                    <li key={keyword.id} className="todo-item">
-                        {keyword.text}
-                        <button onClick={() => removeKeyword(keyword.id)} className="delete-btn">
+                {keywordList.map(keyword => (
+                    <li key={keyword.key} className="todo-item">
+                        {keyword.value}
+                        <button onClick={() => removeKeyword(keyword.key)} className="delete-btn">
                             삭제
                         </button>
                     </li>
